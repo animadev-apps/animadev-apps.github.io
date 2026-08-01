@@ -13,6 +13,7 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parent.parent
 EMAIL = "animadev.apps@gmail.com"
 DATE = "2026-07-31"
+UPDATED_DATE = "2026-08-01"
 APP_PAGE = Path("apps/calcolo-prezzi/index.html")
 PRIVACY_INDEX = Path("apps/calcolo-prezzi/privacy/index.html")
 POLICY_ROOT = Path("apps/calcolo-prezzi/privacy")
@@ -45,6 +46,139 @@ POLICIES = {
 }
 
 EVENT_KEYS = ("calculator_opened", "calculate_pressed", "calculation_completed")
+CALCULATOR_IDS = (
+    "discount_price", "discount_percentage", "vat_remove", "vat_add", "vat_rate",
+    "markup", "margin", "unit_price", "sale_price", "consecutive_percentages", "loan",
+)
+AUTOMATIC_EVENTS = ("first_open", "session_start", "screen_view", "user_engagement")
+CONSENT_VALUES = ("unknown", "denied", "ad_storage", "ad_user_data", "ad_personalization")
+OFFICIAL_ANALYTICS_URLS = (
+    "https://firebase.google.com/support/privacy",
+    "https://policies.google.com/privacy",
+    "https://support.google.com/analytics/answer/9234069",
+    "https://firebase.google.com/docs/analytics/android/configure-data-collection",
+    "https://support.google.com/analytics/answer/6004245",
+    "https://support.google.com/analytics/answer/9940393",
+)
+LOCALIZED_POLICY_REQUIREMENTS = {
+    "it": {
+        "effective": "31 luglio 2026",
+        "updated": "1 agosto 2026",
+        "active": "Google Analytics for Firebase è integrato",
+        "prior_consent": "Analytics viene attivato soltanto dopo un consenso esplicito",
+        "withdrawal": "Dopo la revoca non vengono raccolti nuovi eventi",
+        "pseudonymous": "identificatore pseudonimo dell’istanza dell’app",
+        "local_choice": "La scelta viene conservata localmente sul dispositivo",
+        "ad_disabled": "L’Advertising ID, Google Signals e la personalizzazione pubblicitaria sono disabilitati",
+        "ad_consent_denied": "restano sempre denied",
+        "ads_unlinked": "Google Ads non è collegato",
+        "no_user_id": "L’app non imposta User ID o proprietà utente",
+        "granular_disabled": "I report granulari relativi a città e dettagli del dispositivo sono disabilitati",
+        "no_gps": "non accede al GPS",
+        "no_crash_ads": "Non sono presenti Crashlytics, AdMob o pubblicità",
+        "technical_data": "informazioni tecniche generali sul dispositivo e sul sistema operativo",
+        "not_anonymous": "Questi dati non sono completamente anonimi",
+        "retention": "impostata a 14 mesi",
+        "validation_failure": "anche se la validazione non riesce",
+        "exclusive_parameter": "Ciascun evento personalizzato contiene esclusivamente il parametro",
+        "website_separate": "sito statico, distinto dall’app, non usa cookie",
+    },
+    "en": {
+        "effective": "31 July 2026",
+        "updated": "1 August 2026",
+        "active": "Google Analytics for Firebase is integrated",
+        "prior_consent": "Analytics is enabled only after explicit consent",
+        "withdrawal": "After withdrawal, no new events are collected",
+        "pseudonymous": "pseudonymous app-instance identifier",
+        "local_choice": "The choice is stored locally on the device",
+        "ad_disabled": "The Advertising ID, Google Signals and advertising personalisation are disabled",
+        "ad_consent_denied": "always remain denied",
+        "ads_unlinked": "Google Ads is not linked",
+        "no_user_id": "The app sets no User ID or user properties",
+        "granular_disabled": "Granular city and device-detail reporting is disabled",
+        "no_gps": "does not request Android location permission, access GPS or collect precise location",
+        "no_crash_ads": "Crashlytics, AdMob and advertising are not present",
+        "technical_data": "general technical information about the device and operating system",
+        "not_anonymous": "This data is not completely anonymous",
+        "retention": "set to 14 months",
+        "validation_failure": "even if validation fails",
+        "exclusive_parameter": "Each custom event contains exclusively the",
+        "website_separate": "static website, which is separate from the app, uses no cookies",
+    },
+    "de": {
+        "effective": "31. Juli 2026",
+        "updated": "1. August 2026",
+        "active": "Google Analytics for Firebase ist als",
+        "prior_consent": "Analytics wird erst nach ausdrücklicher Einwilligung aktiviert",
+        "withdrawal": "Nach einem Widerruf werden keine neuen Ereignisse erfasst",
+        "pseudonymous": "pseudonyme App-Instanzkennung",
+        "local_choice": "Die Auswahl wird lokal auf dem Gerät gespeichert",
+        "ad_disabled": "Advertising ID, Google Signals und personalisierte Werbung sind deaktiviert",
+        "ad_consent_denied": "bleiben immer denied",
+        "ads_unlinked": "Google Ads ist nicht verknüpft",
+        "no_user_id": "Die App setzt weder eine User ID noch Nutzereigenschaften",
+        "granular_disabled": "Detaillierte Berichte zu Stadt- und Geräteangaben sind in den verfügbaren Einstellungen deaktiviert",
+        "no_gps": "greift nicht auf GPS zu",
+        "no_crash_ads": "Crashlytics, AdMob und Werbung sind nicht vorhanden",
+        "technical_data": "allgemeine technische Geräte- und Betriebssystemangaben",
+        "not_anonymous": "Diese Daten sind nicht vollständig anonym",
+        "retention": "auf 14 Monate eingestellt",
+        "validation_failure": "auch wenn die Validierung fehlschlägt",
+        "exclusive_parameter": "Jedes eigene Ereignis enthält ausschließlich den Parameter",
+        "website_separate": "von der App getrennte statische Website verwendet keine Cookies",
+    },
+    "es": {
+        "effective": "31 de julio de 2026",
+        "updated": "1 de agosto de 2026",
+        "active": "Google Analytics for Firebase está integrado",
+        "prior_consent": "Analytics solo se activa tras un consentimiento explícito",
+        "withdrawal": "Tras retirar el consentimiento, no se recopilan nuevos eventos",
+        "pseudonymous": "identificador seudónimo de la instancia de la aplicación",
+        "local_choice": "La elección se guarda localmente en el dispositivo",
+        "ad_disabled": "El Advertising ID, Google Signals y la personalización publicitaria están desactivados",
+        "ad_consent_denied": "permanecen siempre en denied",
+        "ads_unlinked": "Google Ads no está vinculado",
+        "no_user_id": "La aplicación no establece ningún User ID ni propiedades de usuario",
+        "granular_disabled": "Los informes granulares de ciudad y detalles del dispositivo están desactivados",
+        "no_gps": "no accede al GPS",
+        "no_crash_ads": "No hay Crashlytics, AdMob ni publicidad",
+        "technical_data": "información técnica general del dispositivo y sistema operativo",
+        "not_anonymous": "Estos datos no son completamente anónimos",
+        "retention": "configurada en 14 meses",
+        "validation_failure": "aunque falle la validación",
+        "exclusive_parameter": "Cada evento personalizado contiene exclusivamente el parámetro",
+        "website_separate": "sitio web estático, distinto de la aplicación, no utiliza cookies",
+    },
+    "fr": {
+        "effective": "31 juillet 2026",
+        "updated": "1er août 2026",
+        "active": "Google Analytics for Firebase est intégré",
+        "prior_consent": "Analytics n’est activé qu’après un consentement explicite",
+        "withdrawal": "Après le retrait du consentement, aucun nouvel événement n’est collecté",
+        "pseudonymous": "identifiant pseudonyme de l’instance de l’application",
+        "local_choice": "Le choix est conservé localement sur l’appareil",
+        "ad_disabled": "L’Advertising ID, Google Signals et la personnalisation publicitaire sont désactivés",
+        "ad_consent_denied": "restent toujours denied",
+        "ads_unlinked": "Google Ads n’est pas associé",
+        "no_user_id": "L’application ne définit aucun User ID ni aucune propriété utilisateur",
+        "granular_disabled": "Les rapports granulaires sur la ville et les informations relatives à l’appareil sont désactivés",
+        "no_gps": "n’accède pas au GPS",
+        "no_crash_ads": "Crashlytics, AdMob et la publicité sont absents",
+        "technical_data": "informations techniques générales sur l’appareil et le système d’exploitation",
+        "not_anonymous": "Ces données ne sont pas entièrement anonymes",
+        "retention": "configurée sur 14 mois",
+        "validation_failure": "même si la validation échoue",
+        "exclusive_parameter": "Chaque événement personnalisé contient exclusivement le paramètre",
+        "website_separate": "site statique, distinct de l’application, n’utilise ni cookies",
+    },
+}
+FUTURE_ONLY_ANALYTICS_MARKERS = {
+    "it": ("una versione futura potrà integrare", "statistiche facoltative future", "configurazione prevista per la versione"),
+    "en": ("a future version may integrate", "future optional statistics", "planned configuration for the app version"),
+    "de": ("eine künftige version kann", "künftige optionale statistiken", "geplante konfiguration der app-version"),
+    "es": ("una versión futura podrá integrar", "estadísticas opcionales futuras", "configuración prevista para la versión"),
+    "fr": ("une future version pourra intégrer", "futures statistiques facultatives", "configuration prévue pour la version"),
+}
 APP_TARGET = "/apps/calcolo-prezzi/"
 PRIVACY_TARGET = "/apps/calcolo-prezzi/privacy/"
 LANG_TARGETS = tuple(f"{PRIVACY_TARGET}{language}/" for language in ("it", "en", "de", "es", "fr"))
@@ -80,6 +214,7 @@ class SiteHTMLParser(HTMLParser):
         self.policy_headings: list[str] = []
         self.current_policy_heading: list[str] = []
         self.ids: set[str] = set()
+        self.text_chunks: list[str] = []
 
     def handle_starttag(self, tag: str, attrs_list: list[tuple[str, str | None]]) -> None:
         attrs = {key: value or "" for key, value in attrs_list}
@@ -130,10 +265,15 @@ class SiteHTMLParser(HTMLParser):
             self.policy_section_depth -= 1
 
     def handle_data(self, data: str) -> None:
+        self.text_chunks.append(data)
         if self.title_depth:
             self.title_text.append(data)
         if self.policy_section_h2_depth:
             self.current_policy_heading.append(data)
+
+    def visible_text(self) -> str:
+        """Return normalised visible text for targeted semantic checks."""
+        return " ".join(" ".join(self.text_chunks).split())
 
 
 def report(errors: list[str], path: Path | str, message: str) -> None:
@@ -294,15 +434,56 @@ def validate_html(page: Path, expected_lang: str, errors: list[str]) -> SiteHTML
 
 def validate_policy(page: Path, app_name: str, parser: SiteHTMLParser, errors: list[str]) -> None:
     raw = (ROOT / page).read_text(encoding="utf-8")
+    visible = parser.visible_text()
+    language = HTML_LANGS[page]
+    requirements = LOCALIZED_POLICY_REQUIREMENTS[language]
     if app_name not in raw:
         report(errors, page, f"missing localised app name {app_name!r}")
     if DATE not in parser.time_datetimes:
         report(errors, page, f"missing date in a time element with datetime={DATE}")
-    if parser.time_datetimes.count(DATE) < 2:
-        report(errors, page, "effective and updated dates are both required")
-    for key in (*EVENT_KEYS, "calculator_id"):
-        if key not in raw:
-            report(errors, page, f"missing Analytics key {key}")
+    if UPDATED_DATE not in parser.time_datetimes:
+        report(errors, page, f"missing update date in a time element with datetime={UPDATED_DATE}")
+    for date_key in ("effective", "updated"):
+        if requirements[date_key] not in visible:
+            report(errors, page, f"missing localised {date_key} date: {requirements[date_key]!r}")
+
+    for key in (*EVENT_KEYS, "calculator_id", *CALCULATOR_IDS, *AUTOMATIC_EVENTS):
+        if f"<code>{key}</code>" not in raw:
+            report(errors, page, f"missing technical Analytics key in a code element: {key}")
+    for value in CONSENT_VALUES:
+        if f"<code>{value}</code>" not in raw:
+            report(errors, page, f"missing consent configuration value: {value}")
+    for url in OFFICIAL_ANALYTICS_URLS:
+        if url not in raw:
+            report(errors, page, f"missing official Analytics reference: {url}")
+
+    for concept, marker in requirements.items():
+        if concept in ("effective", "updated"):
+            continue
+        if marker not in visible:
+            report(errors, page, f"missing localised policy concept {concept}: {marker!r}")
+    for marker in FUTURE_ONLY_ANALYTICS_MARKERS[language]:
+        if marker in visible.lower():
+            report(errors, page, f"Analytics is still described as future-only: {marker!r}")
+
+    required_shared_concepts = (
+        "Google Ireland Limited", "Google Ads", "Google Signals", "User ID",
+        "Advertising ID", "Crashlytics", "AdMob", "14",
+    )
+    for marker in required_shared_concepts:
+        if marker not in visible:
+            report(errors, page, f"missing shared Analytics concept: {marker}")
+
+    false_technical_assertions = (
+        "nessun dato tecnico del dispositivo viene mai trattato",
+        "no technical device data is ever processed",
+        "technische Gerätedaten werden niemals verarbeitet",
+        "nunca se tratan datos técnicos del dispositivo",
+        "aucune donnée technique de l’appareil n’est jamais traitée",
+    )
+    for assertion in false_technical_assertions:
+        if assertion.lower() in visible.lower():
+            report(errors, page, f"false absolute technical-data assertion found: {assertion!r}")
 
     targets = link_targets(page, parser)
     for expected in LANG_TARGETS:

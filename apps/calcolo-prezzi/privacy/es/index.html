@@ -16,10 +16,10 @@
   <main id="contenido" class="main-layout policy">
     <p class="eyebrow">Calculadora de precios · Android · <code>com.animadev.calcoloprezzi</code></p>
     <h1>Política de Privacidad de Calculadora de precios</h1>
-    <p class="lede">Información clara sobre las preferencias guardadas en el dispositivo y las estadísticas opcionales previstas para una futura versión de la aplicación.</p>
+    <p class="lede">Información clara sobre las preferencias guardadas en el dispositivo y las estadísticas opcionales activadas únicamente tras el consentimiento.</p>
     <div class="policy-meta">
       <p>Fecha de entrada en vigor: <time datetime="2026-07-31">31 de julio de 2026</time></p>
-      <p>Última actualización: <time datetime="2026-07-31">31 de julio de 2026</time></p>
+      <p>Última actualización: <time datetime="2026-08-01">1 de agosto de 2026</time></p>
     </div>
     <nav class="language-nav" aria-label="Idioma de la Política de Privacidad">
       <a href="../it/" lang="it">Italiano</a>
@@ -31,7 +31,7 @@
 
     <aside class="notice" aria-labelledby="borrador-title">
       <h2 id="borrador-title">Estado de esta política</h2>
-      <p>Este es un borrador completo y prudente. Describe tanto el funcionamiento actual como la configuración prevista para la versión de la aplicación que incluirá Google Analytics for Firebase. Firebase Analytics no se presenta como un servicio ya operativo: la política y la configuración se revisarán y actualizarán antes de la publicación definitiva de dicha versión.</p>
+      <p>Esta política es un documento informativo redactado con prudencia y no constituye asesoramiento jurídico certificado. Describe la configuración de Google Analytics for Firebase actualmente integrada en la aplicación y los controles aplicados antes y después de la elección del usuario.</p>
     </aside>
 
     <nav class="toc" aria-labelledby="indice-title">
@@ -40,7 +40,7 @@
         <li><a href="#identity">Identidad y contacto</a></li>
         <li><a href="#scope">Ámbito y funciones de la aplicación</a></li>
         <li><a href="#local">Datos almacenados localmente</a></li>
-        <li><a href="#analytics">Estadísticas opcionales futuras</a></li>
+        <li><a href="#analytics">Estadísticas opcionales y consentimiento</a></li>
         <li><a href="#collected">Datos tratados tras el consentimiento</a></li>
         <li><a href="#country">País aproximado</a></li>
         <li><a href="#excluded">Datos excluidos de los eventos personalizados</a></li>
@@ -72,70 +72,74 @@
       <h2>3. Datos almacenados localmente</h2>
       <p>La aplicación guarda únicamente en el dispositivo, dentro de su almacenamiento local, algunas preferencias necesarias para su funcionamiento y personalización:</p>
       <ul class="plain-list">
-        <li>idioma;</li><li>tema;</li><li>moneda mostrada;</li><li>estado de la introducción inicial;</li><li>estado del consentimiento para las estadísticas, cuando se implemente esta función.</li>
+        <li>idioma;</li><li>tema;</li><li>moneda mostrada;</li><li>estado de la introducción inicial;</li><li>estado del consentimiento para las estadísticas.</li>
       </ul>
       <p>Estas preferencias no se envían a AnimaDev. Permanecen en el dispositivo y pueden eliminarse borrando los datos de la aplicación en los ajustes de Android o desinstalándola.</p>
     </section>
 
     <section id="analytics" class="policy-section">
-      <h2>4. Estadísticas opcionales futuras</h2>
-      <p>Una versión futura podrá integrar <strong>Google Analytics for Firebase</strong> como único servicio de Analytics. La recopilación estará desactivada de forma predeterminada y comenzará únicamente después de un consentimiento explícito, sin recopilación previa. Ninguna opción estará preseleccionada. Rechazarla no limitará el uso de la aplicación; la elección podrá modificarse en Ajustes y, tras retirar el consentimiento, no se enviarán nuevos eventos de Analytics.</p>
-      <p>La configuración prevista no incluye Crashlytics, AdMob, Google Ads, publicidad, Google Signals, User-ID personalizados, datos proporcionados por los usuarios ni personalización publicitaria. Se desactivará el Advertising ID, así como la recopilación granular de la ciudad y de detalles del dispositivo.</p>
+      <h2>4. Estadísticas opcionales y consentimiento</h2>
+      <p><strong>Google Analytics for Firebase</strong> está integrado en la aplicación como único servicio de Analytics, pero la recopilación está desactivada de forma predeterminada. Antes de la pantalla principal siempre se muestra una pantalla de elección sin opciones preseleccionadas. Analytics solo se activa tras un consentimiento explícito; los estados <code>unknown</code> y <code>denied</code> mantienen desactivada la recopilación, y la mera presencia del SDK no implica recopilación antes del consentimiento. La aplicación y todas las calculadoras siguen siendo plenamente utilizables si se rechaza.</p>
+      <p>La elección puede modificarse en Ajustes. Tras retirar el consentimiento, no se recopilan nuevos eventos hasta que el usuario vuelva a consentir. Los estados de consentimiento <code>ad_storage</code>, <code>ad_user_data</code> y <code>ad_personalization</code> permanecen siempre en <code>denied</code>, incluso cuando se autorizan las estadísticas opcionales.</p>
+      <p>El Advertising ID, Google Signals y la personalización publicitaria están desactivados, y Google Ads no está vinculado. La aplicación no establece ningún User ID ni propiedades de usuario y no proporciona a Google datos facilitados por el usuario para publicidad. Los informes granulares de ciudad y detalles del dispositivo están desactivados en los ajustes disponibles. No hay Crashlytics, AdMob ni publicidad.</p>
     </section>
 
     <section id="collected" class="policy-section">
       <h2>5. Datos tratados tras el consentimiento</h2>
       <h3>Eventos automáticos estándar</h3>
-      <p>Firebase Analytics podrá tratar eventos estándar generados automáticamente por el SDK relativos al primer inicio, al inicio o uso de la aplicación, las sesiones, la interacción dentro de la aplicación, su actualización y versión, y la clase técnica de pantalla o actividad cuando el SDK la genere automáticamente.</p>
+      <p>Tras el consentimiento, el SDK puede generar automáticamente eventos estándar como <code>first_open</code> (primer inicio), <code>session_start</code> (inicio de una sesión), <code>screen_view</code> (visualización de una pantalla) y <code>user_engagement</code> (interacción mientras la aplicación está en primer plano). Google Analytics puede asociar automáticamente a los eventos parámetros necesarios para los informes.</p>
       <h3>Información técnica limitada</h3>
-      <p>Podrán tratarse el sistema operativo y su versión general, la versión de la aplicación, el idioma del dispositivo o de la aplicación cuando el SDK lo facilite, la plataforma, un identificador seudónimo de la instancia de la aplicación y el país aproximado. Estos datos no son completamente anónimos: son seudónimos o están asociados a un identificador aleatorio de la instalación.</p>
+      <p>Estos parámetros pueden incluir la versión de la aplicación, la clase o identificador técnico de la pantalla, la duración o tiempo de interacción, información de la sesión, idioma y plataforma, un identificador seudónimo de la instancia de la aplicación, el país aproximado que puede deducirse de la dirección IP e información técnica general del dispositivo y sistema operativo necesaria para el servicio. Estos datos no son completamente anónimos: son seudónimos o están asociados a un identificador aleatorio de la instalación.</p>
       <h3>Eventos y parámetro personalizados</h3>
-      <p>Solo se configurarán tres eventos: <code>calculator_opened</code>, <code>calculate_pressed</code> y <code>calculation_completed</code>. El único parámetro personalizado será <code>calculator_id</code>, con uno de estos valores:</p>
+      <p>La aplicación envía únicamente tres eventos personalizados. <code>calculator_opened</code> indica que se ha abierto una calculadora; <code>calculate_pressed</code> indica que se ha pulsado expresamente el comando de cálculo, aunque falle la validación; <code>calculation_completed</code> indica que se ha producido un resultado válido. Cada evento personalizado contiene exclusivamente el parámetro <code>calculator_id</code>, que solo identifica el tipo de calculadora, con uno de estos valores:</p>
       <ul class="plain-list">
         <li><code>discount_price</code>, <code>discount_percentage</code>;</li>
         <li><code>vat_remove</code>, <code>vat_add</code>, <code>vat_rate</code>;</li>
         <li><code>markup</code>, <code>margin</code>, <code>unit_price</code>, <code>sale_price</code>;</li>
         <li><code>consecutive_percentages</code>, <code>loan</code>.</li>
       </ul>
-      <p>Estos identificadores solo indican qué función se ha utilizado, no los valores introducidos ni el resultado del cálculo.</p>
+      <p>Estos identificadores técnicos no contienen los valores introducidos ni los resultados.</p>
     </section>
 
     <section id="country" class="policy-section">
       <h2>6. País aproximado</h2>
-      <p>Google puede deducir de forma aproximada el país a partir de la dirección IP mientras presta el servicio. La aplicación no solicita el permiso de ubicación de Android, no accede al GPS ni recopila la ubicación precisa. La ciudad no se recopila mediante la configuración granular, que estará desactivada.</p>
+      <p>Google puede deducir de forma aproximada el país a partir de la dirección IP mientras presta el servicio. La aplicación no solicita el permiso de ubicación de Android, no accede al GPS ni recopila la ubicación precisa. La recopilación granular de la ciudad está desactivada en los ajustes disponibles.</p>
       <p>Las VPN, las redes corporativas y los operadores pueden hacer que el país sea inexacto. AnimaDev solo consulta estadísticas agregadas por país. Esta descripción no significa que Google nunca trate la dirección IP durante la transmisión y el procesamiento técnicos.</p>
     </section>
 
     <section id="excluded" class="policy-section">
       <h2>7. Datos excluidos de los eventos personalizados</h2>
-      <p>AnimaDev no configura los eventos personalizados para enviar:</p>
+      <p>AnimaDev no incluye en los tres eventos personalizados de la aplicación:</p>
       <ul class="plain-list">
-        <li>precios, porcentajes, tipos de IVA, márgenes, recargos, moneda seleccionada, cantidades, resultados de cálculos o errores de validación;</li>
-        <li>capital del préstamo, tipos de interés, TAE, duración del préstamo, fechas, cuotas o calendario de amortización;</li>
-        <li>texto escrito, nombre, correo electrónico del usuario, número de teléfono, dirección, contactos, fotos o archivos;</li>
-        <li>ubicación GPS o Advertising ID.</li>
+        <li>precios, importes, resultados, porcentajes, tipos de IVA, márgenes, recargos, cantidades, unidades, moneda seleccionada o símbolos monetarios;</li>
+        <li>valores introducidos, mensajes de error o de validación;</li>
+        <li>información sobre préstamos, incluidos capital, tipo de interés, duración, número de cuotas, cuota calculada y fechas introducidas;</li>
+        <li>texto libre, correo electrónico u otros datos de contacto, fotografías, archivos o ubicación GPS.</li>
       </ul>
+      <p>Estas exclusiones se refieren a los tres eventos personalizados y no eliminan el tratamiento automático por el SDK de la información técnica descrita anteriormente. La recopilación del Advertising ID también está desactivada en la configuración.</p>
     </section>
 
     <section id="purposes" class="policy-section">
       <h2>8. Finalidades</h2>
-      <p>Las estadísticas opcionales se utilizarán exclusivamente para saber cuántas veces se utiliza la aplicación, medir el uso general de sus funciones, conocer qué calculadoras se abren y cuántas veces se solicita y completa un cálculo, mejorar la usabilidad, la estabilidad y las prioridades de desarrollo, y evaluar el interés general por la aplicación.</p>
-      <p>No se utilizarán para publicidad, elaboración de perfiles comerciales, remarketing, venta de datos, decisiones automatizadas, concesión de créditos ni evaluación financiera de los usuarios.</p>
+      <p>Las estadísticas opcionales se utilizan exclusivamente para saber cuántas veces se utiliza la aplicación, medir el uso general de sus funciones, conocer qué calculadoras se abren y cuántas veces se solicita y completa un cálculo, mejorar la usabilidad, la estabilidad y las prioridades de desarrollo, y evaluar el interés general por la aplicación.</p>
+      <p>No se utilizan para publicidad, elaboración de perfiles comerciales, remarketing, venta de datos, decisiones automatizadas, concesión de créditos ni evaluación financiera de los usuarios.</p>
     </section>
 
     <section id="consent" class="policy-section">
       <h2>9. Base jurídica y consentimiento</h2>
-      <p>Para los usuarios sujetos al RGPD, el consentimiento será la base jurídica de Firebase Analytics. El consentimiento es opcional, específico para las estadísticas y distinto de la mera consulta de la Política de Privacidad. Aceptar la política no será una condición para usar la aplicación.</p>
-      <p>Ninguna opción estará preseleccionada y el rechazo no limitará las funciones. La elección podrá modificarse en Ajustes. La retirada se aplicará a la recopilación futura e impedirá el envío de nuevos eventos, pero no eliminará automáticamente los datos ya transmitidos y agregados. Las solicitudes de privacidad pueden enviarse a <a href="mailto:animadev.apps@gmail.com">animadev.apps@gmail.com</a>.</p>
+      <p>Para los usuarios sujetos al RGPD, el consentimiento es la base jurídica de Firebase Analytics. Es opcional, específico para las estadísticas y distinto de la mera consulta de la Política de Privacidad: leer la política no significa aceptarla y su aceptación no es una condición para usar la aplicación.</p>
+      <p>Ninguna opción está preseleccionada y el rechazo no limita las calculadoras. La elección se guarda localmente en el dispositivo y puede modificarse en Ajustes. La retirada bloquea la recopilación futura hasta que se otorgue un nuevo consentimiento, pero no elimina automáticamente los datos ya transmitidos o agregados. Las solicitudes de privacidad pueden enviarse a <a href="mailto:animadev.apps@gmail.com">animadev.apps@gmail.com</a>.</p>
     </section>
 
     <section id="providers" class="policy-section">
       <h2>10. Destinatarios y proveedores</h2>
-      <p>Cuando se autorice Analytics, los datos se tratarán mediante Google Analytics for Firebase, un servicio proporcionado por Google. Google actúa conforme a las condiciones aplicables a sus servicios y puede utilizar empresas afiliadas e infraestructuras internacionales para prestarlo. AnimaDev no controla directamente todos los servidores utilizados por Google y no puede afirmar que Google nunca pueda acceder a los datos.</p>
+      <p>Cuando se autoriza Analytics, los datos se tratan mediante Google Analytics for Firebase. Según el país del usuario y las condiciones aplicables, el servicio lo presta Google Ireland Limited y/o la entidad de Google pertinente. Google puede utilizar empresas afiliadas, subencargados e infraestructuras internacionales. AnimaDev no controla directamente todos los servidores utilizados por Google y no puede afirmar que Google nunca pueda acceder a los datos.</p>
       <p>Información oficial:</p>
       <ul class="plain-list">
         <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Privacidad y seguridad de los datos en Firebase (Firebase)</a>;</li>
         <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Política de Privacidad de Google</a>;</li>
+        <li><a href="https://support.google.com/analytics/answer/9234069" target="_blank" rel="noopener noreferrer">Eventos recopilados automáticamente por Google Analytics</a>;</li>
+        <li><a href="https://firebase.google.com/docs/analytics/android/configure-data-collection" target="_blank" rel="noopener noreferrer">Controles de recopilación de Analytics para Android</a>;</li>
         <li><a href="https://support.google.com/analytics/answer/6004245" target="_blank" rel="noopener noreferrer">Salvaguardas de datos de Google Analytics</a>;</li>
         <li><a href="https://support.google.com/analytics/answer/9940393" target="_blank" rel="noopener noreferrer">Controles y solicitudes de eliminación de datos en Google Analytics</a>.</li>
       </ul>
@@ -143,12 +147,12 @@
 
     <section id="transfers" class="policy-section">
       <h2>11. Transferencias internacionales</h2>
-      <p>Google puede tratar datos fuera del país del usuario y del Espacio Económico Europeo. En ese caso, el tratamiento está sujeto a las garantías previstas en las condiciones de Google y la legislación aplicable. La ubicación efectiva de la infraestructura puede variar y no se ofrece una garantía absoluta de que los datos permanezcan en un único país.</p>
+      <p>Google puede tratar datos fuera del país del usuario y del Espacio Económico Europeo, también mediante infraestructuras y subencargados. En ese caso, el tratamiento está sujeto a las garantías e instrumentos contractuales disponibles previstos en las condiciones de Google y la legislación aplicable. La ubicación efectiva de la infraestructura puede variar y no se ofrece una garantía absoluta de que los datos permanezcan en un único país.</p>
     </section>
 
     <section id="retention" class="policy-section">
       <h2>12. Conservación</h2>
-      <p>En la futura propiedad de Analytics, la conservación de los datos de eventos y usuarios se configurará en 14 meses y se desactivará la opción que reinicia el periodo con nueva actividad. Esto no significa que todos los datos se eliminen exactamente al cabo de 14 meses: los informes agregados pueden seguir disponibles durante más tiempo según el funcionamiento de Google Analytics.</p>
+      <p>La conservación de los datos de eventos y usuarios de la propiedad de Analytics está configurada en 14 meses y la opción que reinicia el periodo con nueva actividad está desactivada. Esto no significa que todos los datos se eliminen exactamente al cabo de 14 meses: los informes agregados o los datos que Google deba conservar por obligaciones aplicables o para el funcionamiento del servicio pueden seguir disponibles durante más tiempo.</p>
       <p>Las preferencias locales permanecen en el dispositivo hasta que se borren los datos de la aplicación o se desinstale. Los correos enviados voluntariamente al soporte se conservan durante el tiempo necesario para gestionar la solicitud y las obligaciones aplicables.</p>
     </section>
 
@@ -175,7 +179,7 @@
 
     <section id="website" class="policy-section">
       <h2>17. Privacidad de este sitio web</h2>
-      <p>Este sitio web estático no utiliza cookies, Google Analytics, Firebase, publicidad ni formularios, y no registra datos directamente. Al seleccionar un enlace de correo electrónico, el cliente de correo del usuario gestiona el envío. No obstante, GitHub Pages y la infraestructura de red pueden tratar los datos técnicos habituales necesarios para entregar el sitio conforme a sus respectivas políticas.</p>
+      <p>Este sitio web estático, distinto de la aplicación, no utiliza cookies, Firebase, Google Analytics, rastreadores, publicidad, formularios, almacenamiento local del navegador, scripts remotos, fuentes remotas, imágenes remotas ni CDN, y no registra datos directamente. Al seleccionar un enlace de correo electrónico, el cliente de correo del usuario gestiona el envío. No obstante, GitHub Pages y la infraestructura de red pueden tratar los datos técnicos habituales necesarios para entregar el sitio conforme a sus respectivas políticas.</p>
     </section>
     <p><a href="../../">Página de Calculadora de precios</a> · <a href="../../../../">Página principal de AnimaDev</a> · <a href="#contenido">Volver arriba</a></p>
   </main>
